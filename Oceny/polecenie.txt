@@ -1,0 +1,43 @@
+Napisz program ułatwiający nauczycielowi wystawienie oceny z przedmiotu. Program pobiera od użytkownika nazwy trzech plików:
+
+- Plik z listą uczniów uczęszczających na przedmiot:
+
+W każdym wierszu pliku są kolejno: numer (z następującą po nim kropką), imię oraz nazwisko. Kolejne elementy wiersza oddzielone są spacjami. Uczniowie ponumerowani są kolejnymi liczbami całkowitymi dodatnimi.
+
+-Plik z nazwą przedmiotu i ocenami
+
+W pierszym wierszu pliku znajduje się nazwa przedmiotu. W kolejnych są numery uczniów (również z kropką) oraz oceny odddzielone przecinkami (po każdym przecinku jest spacja). Poprawne oceny to 1, 2, 2+, 3, 3+, 4, 4+, 5, 5+ oraz 6.
+
+-Plik wynikowy — plik z wystawionymi ocenami końcowymi.
+
+Program, po kolei dla każdego ucznia, proponuje ocenę końcową. Poprawne oceny końcowe to 1, 2, 3, 4, 5 oraz 6 (nie ma ocen końcowych z plusami). Ocena proponowana jest na podstawie średniej ocen ucznia zaokrąglonej do najbliższej liczby całkowitej (od połowy w górę; plus przy ocenie liczony jest do średniej jako pół oceny, np. ocena 4+ ma wartość 4,5). Uczeń niemający żadnej oceny jest nieklasyfikowany. Po zaproponowaniu oceny program pyta czy podnieść uczniowi ocenę końcową o jeden stopień (z wyjątkiem uczniów, którym wypada 6 lub są nieklasyfikowani).
+Po zakończeniu działania programu w pliku wynikowym zapisywana jest nazwa przedmiotu oraz w kolejnych wierszach oceny końcowe lub informacja o nieklasyfikowaniu. 
+Skonstruuj program w następujący sposób: utwórz klasy — Uczen i Przedmiot zapewniające funkconalność potrzebną w programie. W razie potrzeby możesz napisać dodatkowe pomocnicze klasy. Następnie napisz opisany powyżej program korzystając z napisanych klas.
+
+Klasa Uczen musi udostępniać co najmniej następujące operacje (jako pola, metody lub właściwości — należy odpowiednio wybrać):
+
+-utworzenie obiektu na podstawie imienia i nazwiska; nowo utworzony uczeń nie ma żadnych ocen,
+-sprawdzenie imienia oraz nazwiska ucznia,
+-wstawienie uczniowi oceny (nie można, jeżeli uczeń ma już wystawioną ocenę końcową),
+-policzenie średniej ocen ucznia (nie da się policzyć średniej, jeżeli uczeń nie ma ocen),
+-sprawdzenie jaka ocena końcowa wypada uczniowi,
+-sprawdzenie czy uczeń może być klasyfikowany,
+-wystawienie oceny końcowej (na podstawie ocen; nie można wielokrotnie wystawić oceny końćowej),
+-podwyższenie oceny końcowej o jeden (tylko jeżeli jest już wystawiona i różna od 6; nie można podwyższyć oceny końcowej dwukrotnie),
+-sprawdzenie jaka została wystawiona ocena końcowa (uwzględniając ewentualne podwyższenie oceny).
+
+Klasa Przedmiot musi udostępniać co najmniej następujące operacje:
+
+-utworzenie przedmiotu na podstawie jego nazwy; nowo utworzony przedmiot nie ma zapisanych żadnych uczniów,
+-zapisanie ucznia na przedmiot; kolejno zapisani uczniowie otrzymują kolejne numery (numeracja od 1),
+-uzyskanie informacji o uczniu na podstawie jego numeru,
+-wystawienie ocen końcowych wszystkim zapisanym uczniom na podstawie ich ocen.
+
+Klasy Uczen i Przedmiot muszą spełniać również następujące dodatkowe warunki:
+
+-Wszystkie metody w zaprojektowanych klasach powinny sygnalizować błędy za pomocą mechanizmu wyjątków.
+-Metody klas Uczen i Przedmiot nie mogą czytać żadnych danych z pliku, ani pobierać ich od użytkownika z klawiatury. Jedynym sposobem przekazywania danych do metod są parametry tych metod.
+-Metody klas Uczen i Przedmiot nie mogą wyświetlać żadnych danych na ekranie ani nie mogą zapisywać nic do pliku. Mogą jedynie modyfikować stan klasy (zmieniać wartości pól), oraz zwracać wyniki za pomocą instrukcji return.
+
+Stwórz zestaw testów jednostkowych dla napisanych klas.
+Testy muszą dokładnie sprawdzić całą funkcjonalność klasy. Dla każdej metody powinny być testy wszechstronnie sprawdzające jej działanie. W szczególności należy napisać testy sprawdzające wszystkie szczególne przypadki. Jeżeli na przykład metoda operuje na liście, to trzeba sprawdzić jak zachowuje się dla pustej listy. Jeżeli wykonanie jakiejś operacji nie jest w pewnym przypadku możliwe (np. nie można wystawić oceny końcowej uczniowi bez żadnej oceny, nie można podnieść oceny uczniowi z szóstką), to należy sprawdzić również zachowanie w tej sytuacji metody odpowiedzialnej za tę operację. Konieczne są również testy sprawdzające poprawność reakcji metod na możliwe błędy.
